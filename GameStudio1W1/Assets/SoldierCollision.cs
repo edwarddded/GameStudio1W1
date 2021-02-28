@@ -10,9 +10,14 @@ public class SoldierCollision : MonoBehaviour
     int pickup = 0;
     int value = 1;
 
+    public Text total;
+    int totalpick = 0;
+
     public Text ScoreText;
     int score = 0;
     int scorevalue = 200;
+
+    //bool isheal = false;
     // Start is called before the first frame update
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -26,6 +31,10 @@ public class SoldierCollision : MonoBehaviour
             Soldiertext.text = "Pick up Soldier:" + pickup.ToString();
             //the number of soldier already pick up
 
+            //**********
+            totalpick += value;
+            total.text = "Total Pick up Soldier:" + totalpick.ToString();
+
             //***********
             score += scorevalue;
             ScoreText.text = "Score:" + score.ToString();
@@ -36,5 +45,17 @@ public class SoldierCollision : MonoBehaviour
         {
             Debug.Log("Full");
         }
+
+        if (other.gameObject.tag == "Hospital")
+        {
+            Debug.Log("heal");
+            pickup = 0;
+        }
+        
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 }

@@ -20,10 +20,6 @@ public class MissileCollision : MonoBehaviour
             Debug.Log("hit");
             SceneManager.LoadScene(2);
         }
-        else if (other.gameObject.tag == "Hospital")
-        {
-            Debug.Log("heal");
-            
-        }
+        
     }
 }
