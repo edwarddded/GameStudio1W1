@@ -11,7 +11,7 @@ public class TreeCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "Tree")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(2);
             Debug.Log("hit");
         }
     }

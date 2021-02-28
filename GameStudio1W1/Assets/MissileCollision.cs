@@ -12,6 +12,7 @@ public class MissileCollision : MonoBehaviour
         {
             //SceneManager.LoadScene();
             Debug.Log("crash");
+            SceneManager.LoadScene(2);
         }
     }
 }
