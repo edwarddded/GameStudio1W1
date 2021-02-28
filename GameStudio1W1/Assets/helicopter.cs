@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class helicopter : MonoBehaviour
 {
@@ -21,7 +22,12 @@ public class helicopter : MonoBehaviour
 
         transform.Translate(rotation, 0, 0);
         transform.Translate(0, translation, 0);
+        if (Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
+
 
         
 }
