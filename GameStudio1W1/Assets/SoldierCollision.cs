@@ -52,6 +52,7 @@ public class SoldierCollision : MonoBehaviour
             total.text = "Total Rescued Soldier:" + totalpick.ToString();
             Debug.Log("heal");
             pickup = 0;
+            Soldiertext.text = "Pick up Soldier:" + pickup.ToString();
         }
        
         
