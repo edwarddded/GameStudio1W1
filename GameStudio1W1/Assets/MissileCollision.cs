@@ -14,5 +14,10 @@ public class MissileCollision : MonoBehaviour
             Debug.Log("crash");
             SceneManager.LoadScene(2);
         }
+        else if (other.gameObject.tag == "Border")
+        {
+            Debug.Log("hit");
+            SceneManager.LoadScene(2);
+        }
     }
 }
