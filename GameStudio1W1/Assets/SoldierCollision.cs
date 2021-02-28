@@ -2,22 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SoldierCollision : MonoBehaviour
 {
-    //public MissileCollision MC;
+    //soldier already pick up
     public Text Soldiertext;
     int pickup = 0;
     int value = 1;
 
+    //total soldier pick up
     public Text total;
     int totalpick = 0;
 
+    // Game Score
     public Text ScoreText;
     int score = 0;
     int scorevalue = 200;
 
-    //bool isheal = false;
+    //Soldier aleady secured 
+
     // Start is called before the first frame update
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -32,10 +36,6 @@ public class SoldierCollision : MonoBehaviour
             //the number of soldier already pick up
 
             //**********
-            totalpick += value;
-            total.text = "Total Pick up Soldier:" + totalpick.ToString();
-
-            //***********
             score += scorevalue;
             ScoreText.text = "Score:" + score.ToString();
 
@@ -46,16 +46,22 @@ public class SoldierCollision : MonoBehaviour
             Debug.Log("Full");
         }
 
-        if (other.gameObject.tag == "Hospital")
+        if (other.gameObject.tag == "Hospital" )
         {
+            totalpick = totalpick + pickup;
+            total.text = "Total Rescued Soldier:" + totalpick.ToString();
             Debug.Log("heal");
             pickup = 0;
         }
+       
         
     }
 
     private void FixedUpdate()
     {
-        
+        if (pickup == 0 && totalpick ==6)
+        {
+            SceneManager.LoadScene(3);
+        }
     }
 }
