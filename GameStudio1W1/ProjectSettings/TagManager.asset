@@ -9,6 +9,7 @@ TagManager:
   - Missile
   - Border
   - Hospital
+  - Bullet
   layers:
   - Default
   - TransparentFX

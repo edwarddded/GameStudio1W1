@@ -23,13 +23,15 @@ public class helicopter : MonoBehaviour
         float rotation = Input.GetAxis("Horizontal") * MoveSpeed *Time.deltaTime;
         if (rotation <0)
         {
-            spriteRenderer.flipX = true;
+            transform.Translate(-rotation, 0, 0);
+            transform.rotation = Quaternion.Euler(0f, 180f, 0);
         }
         else
         {
-            spriteRenderer.flipX = false;
+            transform.Translate(rotation, 0, 0);
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
-        transform.Translate(rotation, 0, 0);
+        
         transform.Translate(0, translation, 0);
         if (Input.GetKey(KeyCode.R))
         {
